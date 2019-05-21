@@ -8,8 +8,8 @@ import { AppareilService } from '../services/appareil.service';
 })
 export class AppareilViewComponent implements OnInit {
   
-  @Input() id: number;
-
+  //@Input() id: number;
+  
   isAuth = false;
   appareils: any [];
   lastUpdate = new Promise((resolve, reject) => {

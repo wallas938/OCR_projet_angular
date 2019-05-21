@@ -1,4 +1,4 @@
-<li [ngClass]="{'list-group-item': true,
+<li [ngClass]="{  'list-group-item': true,
                   'list-group-item-success': appareilStatut === 'allumé',
                   'list-group-item-danger': appareilStatut === 'éteint'
                   }">
@@ -9,7 +9,7 @@
         *ngIf="appareilStatut === 'allumé'">
       </div>
       <h4 [ngStyle]="{'color': getColor()}">{{ appareilName }} -- Statut : {{ getStatus() }} </h4>
-      <a [routerLink]="[id]">Détail</a>
+      <a [routerLink]="id">Détail</a>
       <input type="text" class="form-control" [(ngModel)]="appareilName">
       <button class="btn btn-success" [disabled]="appareilStatut === 'allumé'" (click)="onSwitchOn()">Allumer</button>
       <button class="btn btn-danger" [disabled]="appareilStatut === 'éteint'" (click)="onSwitchOff()">Eteindre</button>

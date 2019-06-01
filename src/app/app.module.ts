@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'users', component: UserListComponent },
   { path: 'new-user', component: NewUserComponent },
-  { path: '', component: AppareilViewComponent },
+  { path: '', component: AuthComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
 ];

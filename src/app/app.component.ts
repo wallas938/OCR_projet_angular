@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs-compat/Rx';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +9,25 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
   
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   
   secondes: number;
+  counterSubscription: Subscription
 
   constructor() { }
 
   ngOnInit() {
-    const counter = new Observable();
-    console.log(counter)
 
-    /*counter.subscribe(
+    const counter = Observable.interval(1000)
+
+    this.counterSubscription = counter.subscribe(
       (value: number) => {
         this.secondes = value;
-      },
-      (error: any) => {
-        console.log('Une erreur a été rencontrée !');
-      },
-      () => {
-        console.log('Observable complétée');
       }
-    );*/
+    )
+  }
+
+  ngOnDestroy() {
+    this.counterSubscription.unsubscribe();
   }
 }

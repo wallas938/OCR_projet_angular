@@ -10,4 +10,6 @@
     </ul>
   <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()">Tout allumer</button>
   <button class="btn btn-danger" [disabled]="!isAuth" (click)="onEteindre()">Tout eteindre</button>
+  <button class="btn btn-primary" [disabled]="!isAuth" (click)="onSave()">Enregistrer sur le Server</button>
+  <button class="btn btn-warning" [disabled]="!isAuth" (click)="onFetch()">Charger le contenu du Server</button>
 </div>
